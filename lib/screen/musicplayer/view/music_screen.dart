@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_ex/screen/musicplayer/provider/music_provider.dart';
+import 'package:provider/provider.dart';
 
 class MusicPlayerScreen extends StatefulWidget {
   const MusicPlayerScreen({super.key});
@@ -8,8 +10,16 @@ class MusicPlayerScreen extends StatefulWidget {
 }
 
 class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
+  MusicProvider? providerr;
+  MusicProvider? providerw;
   @override
+  void initState() {
+    super.initState();
+    context.read<MusicProvider>();
+  }
   Widget build(BuildContext context) {
+    providerr = context.read<MusicProvider>();
+    providerw = context.watch<MusicProvider>();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -32,7 +42,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
        body: Center(
          child: Column(
            children: [
-          Image.asset()
+          Image.asset(Text("${providerw!.dataList[providerw!.infoindex].image}") as String,),
            ],
          ),
        ),
