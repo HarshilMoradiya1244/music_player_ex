@@ -42,7 +42,6 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
        body: Center(
          child: Column(
            children: [
-          Image.asset(Text("${providerw!.dataList[providerw!.infoindex].image}") as String,),
            ],
          ),
        ),
